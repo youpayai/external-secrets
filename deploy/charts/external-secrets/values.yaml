@@ -86,10 +86,10 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-resources: {}
-  # requests:
-  #   cpu: 10m
-  #   memory: 32Mi
+resources:
+  requests:
+    cpu: 10m
+    memory: 32Mi
 
 prometheus:
   # -- deprecated. will be removed with 0.7.0, use serviceMonitor instead.
@@ -100,7 +100,7 @@ prometheus:
 
 serviceMonitor:
   # -- Specifies whether to create a ServiceMonitor resource for collecting Prometheus metrics
-  enabled: false
+  enabled: true
 
   # -- Additional labels
   additionalLabels: {}
@@ -137,7 +137,7 @@ webhook:
     tag: ""
   imagePullSecrets: []
   nameOverride: ""
-  fullnameOverride: ""
+  fullnameOverride: external-secrets
   # -- The port the webhook will listen to
   port: 10250
   rbac:
